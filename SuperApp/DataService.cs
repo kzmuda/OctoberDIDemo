@@ -6,6 +6,7 @@ namespace SuperApp
 {
     public class DataService
     {
+        private ISender sender;
         // public void CreateUserAccount(
         //     string name, string email, string phoneNumber
         //     )
@@ -14,22 +15,24 @@ namespace SuperApp
         //     CreateUserAccount(name, email, phoneNumber, repo);
         // }
 
+        public DataService(ISender sender)
+        {
+            this.sender = sender;
+        }
+
         public void CreateUserAccount(
-            string name, string email, string phoneNumber,
+            User user,
             IUserRepository repo
         )
         {
-
-
-            var user = new User
-            {
-                Name = name,
-                Email = email,
-                PhoneNumber = phoneNumber
-            };
-
             repo.AddUser(user);
-            
+            sender.Send(user.Email, "Account was created");
+        }
+
+        public void CreateUserAccount(
+        )
+        {
+            ///
         }
     }
 }

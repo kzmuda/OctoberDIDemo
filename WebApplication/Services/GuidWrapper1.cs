@@ -17,6 +17,8 @@ namespace WebApplication.Services
         public string GetGuid()
         {
             return service.Get();
+
+            
         }
     }
 }

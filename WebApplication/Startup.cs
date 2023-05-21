@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SuperApp;
+using WebApplication.Controllers;
 using WebApplication.Services;
 
 namespace WebApplication
@@ -26,6 +27,13 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<ISender, SmsSender>();
+
+            services.AddTransient<IGuidWrapper1, GuidWrapper1>();
+            services.AddTransient<IGuidWrapper2, GuidWrapper2>();
+            
+            services.AddScoped<IGuidService, GuidService>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,8 +5,6 @@
         public void AddUser(User user)
         {
             // Add user to DB
-            var sender = new EmailSender();
-            sender.SendEmail(user.Email, "Account was created");
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SuperApp
 {
-    public class SmsSender
+    public class SmsSender : ISender
     {
-        public void SendSms(string phoneNumber, string text)
+        public void Send(string phoneNumber, string text)
         {
             Console.Out.WriteLine($"SMS was send to {phoneNumber}");
         }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using SuperApp;
 using WebApplication.Models;
 
 namespace WebApplication.Controllers
@@ -13,16 +14,17 @@ namespace WebApplication.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ISender sender)
         {
-            _logger = logger;
         }
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
+        [Route("/polityka-prywatnosci")]
         public IActionResult Privacy()
         {
             return View();

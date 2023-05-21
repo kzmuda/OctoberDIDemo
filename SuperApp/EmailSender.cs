@@ -4,9 +4,14 @@ using System.Text;
 
 namespace SuperApp
 {
-    public class EmailSender
+    public interface ISender
     {
-        public void SendEmail(string email, string text)
+        void Send(string email, string text);
+    }
+
+    public class EmailSender : ISender
+    {
+        public void Send(string email, string text)
         {
             Console.Out.WriteLine($"Mail was send to {email}");
         }

@@ -17,8 +17,16 @@ namespace SuperApp
 
             var repo = new UserRepository();
 
-            var service = new DataService();
-            service.CreateUserAccount(name, email, phoneNumber, repo);
+            var user = new User
+            {
+                Name = name,
+                Email = email,
+                PhoneNumber = phoneNumber
+            };
+            var sender = new SmsSender();
+            var service = new DataService(sender);
+
+            service.CreateUserAccount(user, repo);
 
 
             

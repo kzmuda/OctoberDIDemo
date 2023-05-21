@@ -21,6 +21,10 @@ namespace WebApplication.Controllers
         [Route("/")]
         public IActionResult Index()
         {
+
+            
+
+
             var list = new List<string>
             {
                 this.wrapper1.GetGuid(),
